@@ -11,9 +11,11 @@ dotenv.config();
 
  const app=express();
 //common middleware
+
+const allowedOrigins = process.env.CORS_ORIGIN.split(",");
 app.use(
   cors({
-    origin:process.env.CORS_ORIGIN,
+    origin:allowedOrigins,
     credentials:true
   })
 ) 
