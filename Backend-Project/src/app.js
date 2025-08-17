@@ -57,4 +57,4 @@ cron.schedule("5 0 * * *", async () => {
   console.log("[cleanup] Completed.");
 }, { timezone: "Asia/Kolkata" });
 
- export {app}
+ export default app;

@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import {app} from "./app.js";
+import app from "./app.js";
 import connectDB from "./db/index.js";
 
 
@@ -19,3 +19,4 @@ connectDB()
 .catch((err)=>{
     console.log("MonogoDB Connection Errorsss",err);
 })
+export default app;
