@@ -33,7 +33,7 @@ function AdminDashboard() {
   // fetch current admin user
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/v1/users/me", { withCredentials: true })
+      .get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/me`, { withCredentials: true })
       .then((res) => setUser(res.data.data || res.data.user))
       .catch(() => {});
   }, []);
@@ -41,7 +41,7 @@ function AdminDashboard() {
   // fetch events
   const fetchEvents = () =>
     axios
-      .get("http://localhost:3000/api/v1/events/all", { withCredentials: true })
+      .get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/all`, { withCredentials: true })
       .then((res) => {
         setEvents(res.data.data.events || []);
         setError("");
@@ -66,7 +66,7 @@ function AdminDashboard() {
 
     try {
       await axios.post(
-        "http://localhost:3000/api/v1/events/create",
+        `${import.meta.env.VITE_API_BASE_URL}/api/v1/events/create`,
         formData,
         { withCredentials: true }
       );
@@ -82,7 +82,7 @@ function AdminDashboard() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/api/v1/users/logout",
+        `${import.meta.env.VITE_API_BASE_URL}/api/v1/users/logout`,
         {},
         { withCredentials: true }
       );
@@ -101,7 +101,7 @@ function AdminDashboard() {
 
     try {
     const response = await axios.get(
-      `http://localhost:3000/api/v1/admin/events/${eventId}/attendees`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/v1/admin/events/${eventId}/attendees`,
       { withCredentials: true }
       );
       console.log("Attendee response:", response.data);
@@ -120,7 +120,7 @@ function AdminDashboard() {
   if (!window.confirm("Delete this event? Tickets/registrations will be removed.")) return;
 
   try {
-    await axios.delete(`http://localhost:3000/api/v1/events/${id}`, {
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/${id}`, {
       withCredentials: true,
     });
     // remove from list (or call fetchEvents())

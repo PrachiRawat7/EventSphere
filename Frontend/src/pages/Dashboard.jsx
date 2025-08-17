@@ -27,7 +27,7 @@ function Dashboard() {
     console.log("handleRegister called with eventId:", eventId);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/tickets",
+        `${import.meta.env.VITE_API_BASE_URL}/api/v1/tickets`,
         { eventId },
         { withCredentials: true }
       );
@@ -47,7 +47,7 @@ function Dashboard() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3000/api/v1/users/logout", {}, { withCredentials: true });
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/logout`, {}, { withCredentials: true });
       alert("Logged out successfully");
       navigate("/");  // navigate to homepage after success
     } catch (err) {
@@ -59,7 +59,7 @@ function Dashboard() {
   const fetchEvents = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3000/api/v1/events/all", {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/all`, {
         withCredentials: true,
       });
       setEvents(response.data.data.events || response.data.events || []);
@@ -76,7 +76,7 @@ function Dashboard() {
   const fetchTickets = async () => {
     try {
       setTicketsLoading(true);
-      const response = await axios.get("http://localhost:3000/api/v1/tickets", {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/tickets`, {
         withCredentials: true,
       });
       setTickets(response.data.data || []);
@@ -91,7 +91,7 @@ function Dashboard() {
 useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/users/me", {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/me`, {
           withCredentials: true,
         });
         setUser(response.data.data || response.data.user);
