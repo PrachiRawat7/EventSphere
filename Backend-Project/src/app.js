@@ -34,7 +34,7 @@ import ticketsRouter from "./routes/tickets.route.js"
 import adminRoutes from "./routes/admin.routes.js"
 
 //routes
-app.use("/api/v1/healthcheck",healthcheckRouter);
+app.use("/v1/healthcheck",healthcheckRouter);
 app.use("/api/v1/users",userRouter);
 app.use("/api/v1/events", eventsRouter);
 app.use("/api/v1/tickets", ticketsRouter);
