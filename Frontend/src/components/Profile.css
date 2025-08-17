@@ -1,0 +1,65 @@
+.profile-container {
+  max-width: 380px;
+  margin: 40px auto;
+  text-align: center;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  padding-bottom: 100px;
+}
+
+.profile-header-bg {
+  height: 120px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+
+.profile-card {
+  background: white;
+  padding: 40px 20px 30px;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 10px 30px rgb(255 75 43 / 0.2);
+  margin-top: -60px;
+  position: relative;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 0 0 20px rgb(255 75 43 / 0.4);
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.profile-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #444;
+}
+
+.profile-email,
+.profile-username {
+  margin: 5px 0;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.logout-button {
+  margin-top: 20px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+}

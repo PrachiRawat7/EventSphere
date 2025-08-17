@@ -1,0 +1,69 @@
+/* Main layout wrapper */
+.dashboard-container {
+  display: flex;
+  width: 100vw; 
+  padding-top: 70px; /* for header */
+  padding-bottom: 70px; /* for footer */
+  min-height: calc(100vh - 140px);
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 220px;
+  height: calc(100vh - 140px);
+  background: #ffdddd;
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+}
+
+/* Content beside sidebar */
+.dashboard-content {
+  margin-left: 220px;
+  padding: 1.5rem;
+  width: calc(100% - 220px);
+  box-sizing: border-box;
+   min-height: calc(100vh - 140px);
+    flex: 1;
+     display: block;
+     text-align: initial;
+     
+}
+
+/* Section Title */
+.section-title {
+  color: #ff5e5e;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  
+
+  
+}
+
+/* Grid layout for events */
+.event-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-top: 1rem;
+   width: 100%;  
+    max-width: none; 
+    margin-left: 0;
+     margin-right: 0;
+     padding-bottom: 100px;
+}
+
+.ticket-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;    /* ✅ Center the grid */
+  gap: 2rem 3rem;             /* ✅ Add vertical and horizontal spacing */
+  margin-top: 2rem;
+  padding-bottom: 100px;
+}

@@ -1,0 +1,116 @@
+/* Home.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4fff6;
+  
+}
+body, html {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* This is the key change to fix the overlap */
+.home-container {
+  /* Pushes the content down to account for the sticky header's height */
+    flex: 1;
+  padding-top: 5rem;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+/* Main Content */
+.home-main {
+  
+  text-align: center;
+  
+}
+
+.main-heading {
+  font-size: 2rem;
+  color: #d62828;
+  margin-bottom: 1rem;
+}
+
+.sub-text {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Sections */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 3rem 2rem;
+}
+
+/* Left Image/Intro */
+.intro-section img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Right Card Section */
+.card {
+  background-color: #ffeaea;
+  border-radius: 16px;
+  padding: 2rem;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-heading {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #d62828;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 24px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-filled {
+  background-color: #ff5e5e;
+  color: white;
+  border: none;
+}
+
+.btn-filled:hover {
+  background-color: #e04444;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #ff5e5e;
+  border: 2px solid #ff5e5e;
+}
+
+.btn-outline:hover {
+  background-color: #ff5e5e;
+  color: white;
+}
+
+/* REMOVED the old rule that wasn't working correctly:
+main {
+  padding-top: 80px;
+} 
+*/

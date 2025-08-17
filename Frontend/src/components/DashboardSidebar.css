@@ -1,0 +1,40 @@
+.dashboard-sidebar {
+  width: 220px;
+  background: #ffdddd;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #ff5e5e;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  color: #4a6653;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-list li:hover,
+.sidebar-list li.active {
+  background: #ff5e5e;
+  color: white;
+}
