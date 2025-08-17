@@ -6,11 +6,24 @@ import dotenv from "dotenv";
 import cron from "node-cron";
 import { runCleanupPastEvents } from "./jobs/cleanupPastEvents.js";
 import nodemailer from "nodemailer";
+import connectDB from "./db/index.js"; 
+
 
 dotenv.config();
 
  const app=express();
 //common middleware
+
+const dbReady = connectDB();
+app.use(async (_req, _res, next) => {
+  try {
+    await dbReady;
+    next();
+  } catch (e) {
+    next(e);
+  }
+});
+
 
 const allowedOrigins = process.env.CORS_ORIGIN.split(",");
 app.use(
@@ -19,6 +32,8 @@ app.use(
     credentials:true
   })
 ) 
+
+
 
 app.use(express.json({limit:"16kb"}));
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
