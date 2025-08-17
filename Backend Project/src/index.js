@@ -12,9 +12,9 @@ const PORT=process.env.PORT||3001;
 
 connectDB()
 .then(()=>{
-    app.listen(PORT,()=>{
+    
         console.log(`Listening on PORT ${PORT}`);
-    })
+    
 })
 .catch((err)=>{
     console.log("MonogoDB Connection Errorsss",err);
