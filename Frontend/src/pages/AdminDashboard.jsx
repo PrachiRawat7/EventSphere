@@ -9,6 +9,7 @@ import "./Dashboard.css";
 import "./AdminDashboard.css";
            // for .dashboard-container, .dashboard-content, .event-grid
 import { useNavigate } from "react-router-dom";
+import api from "../../api.js";
  
 
 function AdminDashboard() {
@@ -32,7 +33,7 @@ function AdminDashboard() {
 
   // fetch current admin user
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/me`, { withCredentials: true })
       .then((res) => setUser(res.data.data || res.data.user))
       .catch(() => {});
@@ -40,7 +41,7 @@ function AdminDashboard() {
 
   // fetch events
   const fetchEvents = () =>
-    axios
+    api
       .get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/all`, { withCredentials: true })
       .then((res) => {
         setEvents(res.data.data.events || []);
@@ -65,7 +66,7 @@ function AdminDashboard() {
     setError("");
 
     try {
-      await axios.post(
+      await api.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/v1/events/create`,
         formData,
         { withCredentials: true }
@@ -81,7 +82,7 @@ function AdminDashboard() {
 
   const handleLogout = async () => {
     try {
-      await axios.post(
+      await api.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/v1/users/logout`,
         {},
         { withCredentials: true }
@@ -100,7 +101,7 @@ function AdminDashboard() {
     setAttendees([]);
 
     try {
-    const response = await axios.get(
+    const response = await api.get(
       `${import.meta.env.VITE_API_BASE_URL}/api/v1/admin/events/${eventId}/attendees`,
       { withCredentials: true }
       );
@@ -120,7 +121,7 @@ function AdminDashboard() {
   if (!window.confirm("Delete this event? Tickets/registrations will be removed.")) return;
 
   try {
-    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/${id}`, {
+    await api.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/${id}`, {
       withCredentials: true,
     });
     // remove from list (or call fetchEvents())

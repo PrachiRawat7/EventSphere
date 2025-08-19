@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
+import api from "../../api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/login`, formData, {
+      const res = await api.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/login`, formData, {
         withCredentials: true,
       });
 
